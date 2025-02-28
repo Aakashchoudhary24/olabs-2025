@@ -18,3 +18,16 @@ which if further implemented would enhance the learnability, interest, memory re
 3. Make educational resources/material more accessible.
 4. Implement search features to co-relate topics and support
 deep understanding of topics.
+
+# Idea :
+1. To make a web application and deploy it with Next.js.
+2. The web application can either act as a demo site whose 
+functionalities will be later implemented in the  OLabs website
+or it can indepedently serve the requirements of the students.
+3. The main goal is to implement a search bar feature that
+helps students find, relate, gather resources and prepare, learn
+and practice based on their preference and level of knowledge.
+4. The user can either upload several documents as in our case, 
+or the site can be integrated within OLabs where the data source are 
+the lab manuals and official resources from curriculums.
+
