@@ -1,6 +1,11 @@
 export default function Home() {
   return (
     <section className="home-container">
+      {/* Hero Section */}
+      <div className="hero">
+        <h1>Welcome to the Science Lab</h1>
+      </div>
+
       {/* Grid for the 3 Cards */}
       <div className="grid-container">
         <div className="card">

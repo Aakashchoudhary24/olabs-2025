@@ -17,12 +17,6 @@ export default function RootLayout({ children }) {
             </ul>
           </nav>
 
-          {/* Hero Section Placeholder */}
-          <section className="hero">
-            <h2>Welcome to OLabs</h2>
-            <p>Innovate, Learn, and Create</p>
-          </section>
-
           {/* Main Content */}
           <main className="content">{children}</main>
 
