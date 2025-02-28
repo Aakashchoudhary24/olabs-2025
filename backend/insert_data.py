@@ -1,21 +1,18 @@
 import psycopg2
 from embeddings import embed_text
 
-# PostgreSQL connection details
 DB_PARAMS = {
     "dbname": "olabs",
     "user": "sunil",
-    "password": "postgres",
+    "password": "newpassword",
     "host": "localhost",
     "port": "5432"
 }
 
-# Function to insert experiments
 def insert_experiments():
     conn = psycopg2.connect(**DB_PARAMS)
     cursor = conn.cursor()
 
-    # Sample experiments dataset
     experiments = [
         {"title": "Acceleration Due to Gravity", "description": "Determine acceleration due to gravity using a simple pendulum.", "subject": "Physics"},
         {"title": "Ohm’s Law Experiment", "description": "Verify Ohm’s law by measuring voltage and current across a resistor.", "subject": "Physics"},
@@ -59,7 +56,7 @@ def insert_experiments():
         title = exp["title"]
         description = exp["description"]
         subject = exp["subject"]
-        embedding = embed_text(title + " " + description)  # Generate vector embedding
+        embedding = embed_text(title + " " + description) 
 
         cursor.execute("""
             INSERT INTO experiments (title, description, embedding, subject)

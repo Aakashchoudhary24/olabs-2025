@@ -3,7 +3,7 @@ import psycopg2
 conn = psycopg2.connect(
     dbname="olabs",
     user="sunil",
-    password="postgres",
+    password="newpassword",
     host="localhost",
     port="5432"
 )
@@ -14,7 +14,7 @@ def get_db_connection():
     return psycopg2.connect(
         dbname="olabs",
         user="sunil",
-        password="postgres",
+        password="newpassword",
         host="localhost",
         port="5432"
     )

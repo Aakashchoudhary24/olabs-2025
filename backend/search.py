@@ -1,24 +1,22 @@
 from db_setup import get_db_connection
 from embeddings import embed_text
+from synonyms import expand_query
 
 def search_experiments(query):
-    """Finds relevant experiments using a hybrid search approach (Vector + Keyword Matching)."""
     conn = get_db_connection()
     cur = conn.cursor()
     
-    query_embedding = embed_text(query)  # Convert query to vector
+    expanded_query = expand_query(query)  
+    print(f"Expanded Query: {expanded_query}")
 
-    # Hybrid search: Vector similarity + Full-text search + Subject prioritization
+    query_embedding = embed_text(expanded_query)
     cur.execute("""
-        SELECT id, title, description, subject, (embedding <-> %s) AS similarity
+        SELECT id, title, description, subject, (embedding <=> %s) AS similarity
         FROM experiments
-        WHERE to_tsvector('english', title || ' ' || description) @@ plainto_tsquery(%s)
-        OR embedding <-> %s < 0.8  -- Adjust threshold for relevance
-        ORDER BY 
-            CASE WHEN to_tsvector('english', title || ' ' || description) @@ plainto_tsquery(%s) THEN 0 ELSE 1 END,  
-            similarity  -- Rank by similarity after keyword match
+        WHERE embedding <=> %s < 0.8  -- Use cosine similarity
+        ORDER BY similarity
         LIMIT 10;
-    """, (query_embedding, query, query_embedding, query))
+    """, (query_embedding, query_embedding))
 
     results = cur.fetchall()
     conn.close()
