@@ -1,15 +1,18 @@
 import Link from "next/link";
+import '../app/globals.css'
 
 export default function Navbar() {
   return (
-    <nav className="bg-blue-600 text-white py-4 px-6 flex justify-between items-center">
+    <nav className="navbar">
       <h1 className="text-xl font-bold">OLabs</h1>
-      <div className="space-x-4">
-        <Link href="/">Home</Link>
-        <Link href="/experiments">Experiments</Link>
-        <Link href="/about">About</Link>
-        <Link href="/contact">Contact</Link>
-      </div>
+      <input className="search-bar" type="text" placeholder="Search..."/>
+      <ul className="space-x-4">
+        <li><Link href="/">Home</Link></li>
+        <li><Link href="/experiments">Experiments</Link></li>
+        <li><Link href="/about">About</Link></li>
+        <li><Link href="/contact">Contact</Link></li>
+      </ul>
+
     </nav>
   );
 }

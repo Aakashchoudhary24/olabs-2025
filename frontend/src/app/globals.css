@@ -23,23 +23,27 @@ html, body {
 
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  border: 1px solid white;
   align-items: center;
   background: var(--card-bg);
-  padding: 15px 20px;
   border-radius: var(--border-radius);
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 40px;
 }
 
 .navbar ul li a {
   color: var(--text-color);
   text-decoration: none;
   transition: color var(--transition-speed);
+}
+
+.navbar a:active {
+  text-decoration: none;
 }
 
 .navbar ul li a:hover {
@@ -69,7 +73,6 @@ html, body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  zoom: 90%;
 }
 
 
@@ -118,21 +121,17 @@ html, body {
   padding: 50px;
 }
 
-.grid-image {
-  width: 100%;
-  height: auto;
-  border-radius: var(--border-radius);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform var(--transition-speed);
-}
-
-.grid-image:hover {
-  transform: scale(1.05);
-}
-
 /* Responsive */
 @media (max-width: 768px) {
   .grid-container, .image-section {
     grid-template-columns: 1fr; /* Stack on smaller screens */
   }
+}
+
+.search-bar {
+  width: 300px;
+  height: 20px;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid white;
 }
