@@ -7,6 +7,8 @@
 
 .about-para {
     justify-self: center;
+    text-align: left;
+    text-decoration: none;
     background: #f9f9f9;
     border-radius: 8px;
     width: 45vw;

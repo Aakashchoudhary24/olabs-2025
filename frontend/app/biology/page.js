@@ -2,7 +2,7 @@
 import Navbar from "@/components/Navbar";
 import '../../styles/subjects.css';
 
-export default function Physics() {
+export default function Biology() {
     const experiments = [
         { id: 1, title: "Photosynthesis Experiment", pdf: "/pdfs/photosynthesis.pdf" },
         { id: 2, title: "Cell Structure Analysis", pdf: "/pdfs/cell-structure.pdf" },
@@ -14,10 +14,10 @@ export default function Physics() {
     };
 
     return (
-        <div className="physics">
+        <div className="biology">
             <Navbar />
             <div className="subject-content">
-                <h1 className="page-title">Physics</h1>
+                <h1 className="page-title">Biology</h1>
                 <p className="page-subtitle">Explore various biology experiments</p>
                 <div className="experiments-container">
                     {experiments.map((exp) => (

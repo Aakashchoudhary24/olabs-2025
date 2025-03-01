@@ -29,7 +29,7 @@ export default function Navbar() {
 
             const data = await response.json();
             setSearchResults(data.results || []);
-            setFilteredResults(data.results || []); // Initialize filtered results
+            setFilteredResults(data.results || []); 
             setSearchPerformed(true);
         } catch (error) {
             console.error('Error searching:', error);
@@ -41,7 +41,7 @@ export default function Navbar() {
         setSelectedSubject(subject);
 
         if (subject === '') {
-            setFilteredResults(searchResults); // Show all results if no filter is applied
+            setFilteredResults(searchResults); 
         } else {
             const filtered = searchResults.filter(item => item.subject.toLowerCase() === subject.toLowerCase());
             setFilteredResults(filtered);
@@ -73,7 +73,6 @@ export default function Navbar() {
                 </nav>
             </div>
 
-            {/* Filter Dropdown */}
             {searchPerformed && searchResults.length > 0 && (
                 <div className="filter-container">
                     <label htmlFor="subject-filter">Filter by Subject: </label>
@@ -81,13 +80,11 @@ export default function Navbar() {
                         <option value="">All</option>
                         <option value="Physics">Physics</option>
                         <option value="Chemistry">Chemistry</option>
-                        <option value="Maths">Maths</option>
                         <option value="Biology">Biology</option>
                     </select>
                 </div>
             )}
 
-            {/* Search Results Section */}
             {searchPerformed && (
                 <div className="search-results-container">
                     {filteredResults.length > 0 ? (
