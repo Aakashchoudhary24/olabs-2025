@@ -34,27 +34,31 @@ export default function Navbar() {
     };
 
     return (
-        <div className="nav-container">
-            <nav className="navbar">
-                <div className="logo">
-                    <Link href="/">OLabs</Link>
-                </div>
-                <ul className="nav-links">
-                    <li><Link href="/">Home</Link></li>
-                    <li><Link href="/about">About</Link></li>
-                    <li><Link href="/contact">Contact</Link></li>
-                </ul>
-                <form className="search-form" onSubmit={handleSearch}>
-                    <input
-                        type="text"
-                        placeholder="Search..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                    />
-                    <button type="submit">Search</button>
-                </form>
-            </nav>
+        <>
+            {/* Navbar Section */}
+            <div className="nav-container">
+                <nav className="navbar">
+                    <div className="logo">
+                        <Link href="/">OLabs</Link>
+                    </div>
+                    <ul className="nav-links">
+                        <li><Link href="/">Home</Link></li>
+                        <li><Link href="/about">About</Link></li>
+                        <li><Link href="/contact">Contact</Link></li>
+                    </ul>
+                    <form className="search-form" onSubmit={handleSearch}>
+                        <input
+                            type="text"
+                            placeholder="Search..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+                        <button type="submit">Search</button>
+                    </form>
+                </nav>
+            </div>
 
+            {/* Search Results Section - Moved Outside Navbar */}
             {searchPerformed && (
                 <div className="search-results-container">
                     {searchResults.length > 0 ? (
@@ -72,6 +76,6 @@ export default function Navbar() {
                     )}
                 </div>
             )}
-        </div>
+        </>
     );
 }
