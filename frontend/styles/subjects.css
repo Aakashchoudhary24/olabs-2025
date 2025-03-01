@@ -1,0 +1,7 @@
+.subject-content {
+    border: 1px solid black;
+    justify-self: center;
+    margin-top: 1vw;
+    padding: 30px;
+    text-align: left;
+}

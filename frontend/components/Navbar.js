@@ -34,50 +34,26 @@ export default function Navbar() {
     };
 
     return (
-        <div>
-            <nav className="navbar">
-                <div className="logo">
-                    <Link href="/">OLabs</Link>
-                </div>
-                <ul className="nav-links">
-                    <li><Link href="/">Home</Link></li>
-                    <li><Link href="/about">About</Link></li>
-                    <li><Link href="/maths">Contact</Link></li>
-                </ul>
-                <form className="search-form" onSubmit={handleSearch}>
-                    <input
-                        type="text"
-                        placeholder="Search..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                    />
-                    <button type="submit">Search</button>
-                </form>
-            </nav>
-            {!searchPerformed ? (
-                <div className="subject-container">
-                    <div className="subject-card"><Link href="/physics">Physics</Link></div>
-                    <div className="subject-card"><Link href="/chemistry">Chemistry</Link></div>
-                    <div className="subject-card"><Link href="/maths">Maths</Link></div>
-                </div>
-            ) : (
-                <div className="search-results-container">
-    {searchResults.length > 0 ? (
-        <div className="search-results-grid">
-            {searchResults.map((result, index) => (
-                <div key={index} className="search-card">
-                    <h3>{result.title}</h3>
-                    <p><strong>Subject:</strong> {result.subject}</p>
-                    <p>{result.description}</p>
-                </div>
-            ))}
+        <div className="nav-container">
+    <nav className="navbar">
+        <div className="logo">
+            <Link href="/">OLabs</Link>
         </div>
-    ) : (
-        <p>No results found</p>
-    )}
+        <ul className="nav-links">
+            <li><Link href="/">Home</Link></li>
+            <li><Link href="/about">About</Link></li>
+            <li><Link href="/contact">Contact</Link></li>
+        </ul>
+        <form className="search-form" onSubmit={handleSearch}>
+            <input
+                type="text"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <button type="submit">Search</button>
+        </form>
+    </nav>
 </div>
-
-            )}
-        </div>
     );
 }
