@@ -7,7 +7,9 @@ import '../styles/navbar.css';
 export default function Navbar() {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
+    const [filteredResults, setFilteredResults] = useState([]);
     const [searchPerformed, setSearchPerformed] = useState(false);
+    const [selectedSubject, setSelectedSubject] = useState(''); // Filter criteria
 
     const handleSearch = async (e) => {
         e.preventDefault();
@@ -24,12 +26,25 @@ export default function Navbar() {
                 },
                 body: JSON.stringify({ query: searchQuery })
             });
-            
+
             const data = await response.json();
             setSearchResults(data.results || []);
+            setFilteredResults(data.results || []); // Initialize filtered results
             setSearchPerformed(true);
         } catch (error) {
             console.error('Error searching:', error);
+        }
+    };
+
+    const handleFilterChange = (e) => {
+        const subject = e.target.value;
+        setSelectedSubject(subject);
+
+        if (subject === '') {
+            setFilteredResults(searchResults); // Show all results if no filter is applied
+        } else {
+            const filtered = searchResults.filter(item => item.subject.toLowerCase() === subject.toLowerCase());
+            setFilteredResults(filtered);
         }
     };
 
@@ -58,12 +73,25 @@ export default function Navbar() {
                 </nav>
             </div>
 
-            {/* Search Results Section - Moved Outside Navbar */}
+            {/* Filter Dropdown */}
+            {searchPerformed && searchResults.length > 0 && (
+                <div className="filter-container">
+                    <label htmlFor="subject-filter">Filter by Subject: </label>
+                    <select id="subject-filter" value={selectedSubject} onChange={handleFilterChange}>
+                        <option value="">All</option>
+                        <option value="Physics">Physics</option>
+                        <option value="Chemistry">Chemistry</option>
+                        <option value="Maths">Maths</option>
+                    </select>
+                </div>
+            )}
+
+            {/* Search Results Section */}
             {searchPerformed && (
                 <div className="search-results-container">
-                    {searchResults.length > 0 ? (
+                    {filteredResults.length > 0 ? (
                         <div className="search-results-grid">
-                            {searchResults.map((result, index) => (
+                            {filteredResults.map((result, index) => (
                                 <div key={index} className="search-card">
                                     <h3>{result.title}</h3>
                                     <p><strong>Subject:</strong> {result.subject}</p>
