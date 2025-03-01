@@ -15,7 +15,7 @@ export default function Home() {
                     <Link href="/chemistry">CHEMISTRY</Link>
                 </div>
                 <div className="subject-card maths-card">
-                    <Link href="/biology">BIOLOGY</Link>
+                    <Link href="/math">MATH</Link>
                 </div>
             </div>
         </div>
