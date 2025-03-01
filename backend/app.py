@@ -5,14 +5,17 @@ from search import search_experiments
 app = Flask(__name__)
 CORS(app)  # Enable CORS for frontend
 
-@app.route('/search', methods=['GET'])
+@app.route('/search', methods=['POST'])  # Change to POST
 def search():
-    query = request.args.get('q')  # Get search query from frontend
+    data = request.get_json()
+    query = data.get("query")  # Extract query from JSON payload
+
     if not query:
-        return jsonify({"error": "Query parameter 'q' is required"}), 400
+        return jsonify({"error": "Query parameter 'query' is required"}), 400
 
     results = search_experiments(query)
     return jsonify({"results": results})
+
 
 if __name__ == "__main__":
     app.run(debug=True)
