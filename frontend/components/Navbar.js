@@ -82,6 +82,7 @@ export default function Navbar() {
                         <option value="Physics">Physics</option>
                         <option value="Chemistry">Chemistry</option>
                         <option value="Maths">Maths</option>
+                        <option value="Biology">Biology</option>
                     </select>
                 </div>
             )}
