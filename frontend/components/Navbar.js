@@ -17,7 +17,7 @@ export default function Navbar() {
         }
         
         try {
-            const response = await fetch('http://localhost:8000/search', {
+            const response = await fetch(`http://localhost:5000/search?q=${searchQuery}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -65,7 +65,10 @@ export default function Navbar() {
                     {searchResults.length > 0 ? (
                         <ul>
                             {searchResults.map((result, index) => (
-                                <li key={index}>{result}</li>
+                                <li key={index}>
+                                    <strong>{result.title}</strong> - {result.subject} <br />
+                                    <em>{result.description}</em>
+                                </li>
                             ))}
                         </ul>
                     ) : (
