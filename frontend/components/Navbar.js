@@ -61,20 +61,22 @@ export default function Navbar() {
                     <div className="subject-card"><Link href="/maths">Maths</Link></div>
                 </div>
             ) : (
-                <div className="search-results">
-                    {searchResults.length > 0 ? (
-                        <ul>
-                            {searchResults.map((result, index) => (
-                                <li key={index}>
-                                    <strong>{result.title}</strong> - {result.subject} <br />
-                                    <em>{result.description}</em>
-                                </li>
-                            ))}
-                        </ul>
-                    ) : (
-                        <p>No results found</p>
-                    )}
+                <div className="search-results-container">
+    {searchResults.length > 0 ? (
+        <div className="search-results-grid">
+            {searchResults.map((result, index) => (
+                <div key={index} className="search-card">
+                    <h3>{result.title}</h3>
+                    <p><strong>Subject:</strong> {result.subject}</p>
+                    <p>{result.description}</p>
                 </div>
+            ))}
+        </div>
+    ) : (
+        <p>No results found</p>
+    )}
+</div>
+
             )}
         </div>
     );
