@@ -22,6 +22,6 @@ def search_experiments(query):
     conn.close()
 
     return [
-        {"id": row[0], "title": row[1], "description": row[2], "subject": row[3], "similarity": row[4]}
+        {"id": row[0], "title": row[1],"subject": row[3], "similarity": row[4]}
         for row in results
     ]
