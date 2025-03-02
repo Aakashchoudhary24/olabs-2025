@@ -1,33 +1,73 @@
-# Context :
-## Online Labs (OLabs)
-The Online Labs is an educational initiative pioneered by
-AmritaCREATE, the Amrita Center for Research in Analytics, Technologies & Education at Amrita Vishwa Vidyapeetham in partnership with CDAC, Mumbai; under a research grant from the Department of Information 
-Technology, Government of India.
+LabNav - AI-Powered Search for Virtual Labs
 
-## OLabs Hackathon, 2025
-The OLabs Hackathon (OLabsThon) is a prestigious national-level technology event organized jointly by Amrita School of Computing, ACM Student Chapter, and Amrita Center for Research in Analytics, Technologies & Education (Amrita CREATE), Amrita Vishwa Vidyapeetham, Amritapuri. This dynamic hackathon aims to bring together innovative minds from across the nation to enhance the OLabs platform by developing creative, practical, and scalable technological solutions. This event is supported by the Ministry of Electronics and Information Technology (MeitY) and the Ministry of Education (MoE), Government of India.
+📌 Overview
 
-# Need :
-1. Targets rural areas where access to labs are limited.
-2. Olabs integrates AI, Virtual Labs, Unity and many more technologies
-which if further implemented would enhance the learnability, interest, memory retention and an increased will to learn to a great extent.
+This project was developed as part of OLabs Hackathon 2025 (OLabsThon), a national-level technology event organized by Amrita School of Computing, ACM Student Chapter, and Amrita CREATE. The project aims to enhance OLabs, an online virtual laboratory initiative, by integrating an AI-powered search system for improved accessibility and resource discovery.
 
-# Aim :
-1. To make OLabs a self-study platform/tool.
-2. Implement AI and make it a part of daily lives for students.
-3. Make educational resources/material more accessible.
-4. Implement search features to co-relate topics and support
-deep understanding of topics.
+🎯 Objective
 
-# Idea :
-1. To make a web application and deploy it with Next.js.
-2. The web application can either act as a demo site whose 
-functionalities will be later implemented in the  OLabs website
-or it can indepedently serve the requirements of the students.
-3. The main goal is to implement a search bar feature that
-helps students find, relate, gather resources and prepare, learn
-and practice based on their preference and level of knowledge.
-4. The user can either upload several documents as in our case, 
-or the site can be integrated within OLabs where the data source are 
-the lab manuals and official resources from curriculums.
+Our goal was to create an intelligent search functionality that helps students easily find and relate educational resources, experiment manuals, and relevant study materials.
+
+Why?
+
+Bridging the gap: Many students in rural areas lack access to physical labs.
+
+Enhancing e-learning: AI-powered search improves student engagement, memory retention, and independent learning.
+
+Making OLabs a self-study tool: Enabling seamless access to study materials with intelligent recommendations.
+
+🚀 Features
+
+✅ AI-Powered Search: Finds and suggests relevant resources from experiment manuals and academic materials.
+✅ PDF Processing: Extracts text from PDFs and indexes it for efficient search.
+✅ Semantic Search with Vector Embeddings: Uses NLP-based embeddings for smart document retrieval.
+✅ Scalable Web Application: Built with Next.js for a modern and responsive UI.
+✅ Backend with Python & Flask: Manages search indexing and data retrieval.
+✅ User-Friendly Interface: Categorized subject-wise search results.
+
+🏗️ Tech Stack
+
+📌 Frontend
+
+Next.js (React framework) for building the user interface.
+
+CSS for styling.
+
+📌 Backend
+
+Flask for API development.
+
+Python for processing PDFs and search functionalities.
+
+FAISS for vector-based semantic search.
+
+PostgreSQL data storage.
+
+1️⃣ Backend Setup
+
+cd backend
+pip install -r requirements.txt
+python app.py
+
+2️⃣ Frontend Setup
+
+cd frontend
+npm install
+npm run dev
+
+3️⃣ Access the Web Application
+
+Open http://localhost:3000 in your browser.
+
+🔗 Future Scope
+
+Integration with OLabs: Embedding the AI-powered search feature into the official OLabs platform.
+
+Advanced AI Suggestions: Implementing GPT-based recommendations for study pathways.
+
+Blockchain Credentials: Secure verification of experiment completion.
+
+👥 Team & Credits
+
+This project was developed by a team of passionate developers during the OLabsThon 2025. Special thanks to Amrita CREATE, ACM Student Chapter, and OLabs Hackathon organizers for the opportunity.
 
